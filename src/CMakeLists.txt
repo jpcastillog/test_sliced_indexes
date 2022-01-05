@@ -1,0 +1,11 @@
+add_executable(build build.cpp)
+add_executable(decode decode.cpp)
+add_executable(uncompress uncompress.cpp)
+add_executable(intersect intersect.cpp)
+add_executable(union union.cpp)
+add_executable(cardinality cardinality.cpp)
+add_executable(select select.cpp)
+add_executable(contains contains.cpp)
+add_executable(next_geq next_geq.cpp)
+
+add_executable(example example.cpp)
