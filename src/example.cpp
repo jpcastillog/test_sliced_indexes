@@ -72,7 +72,7 @@ void performQueryLog(string query_log_path, string ii_path) {
             il_vectors.insert(std::pair<uint64_t, vector<uint32_t>>(termId, *il));
             
             s_sequence::builder builder;
-            auto stats = builder.build(il->data(), il->size());
+            builder.build(il->data(), il->size());
             s_sequence ss(builder.data());
             ss_sequences.insert(std::pair<uint64_t, s_sequence>(termId, ss));
             // delete il;
@@ -112,12 +112,12 @@ void performQueryLog(string query_log_path, string ii_path) {
             }
 
             auto start = std::chrono::high_resolution_clock::now();
-            uint64_t time;
+            // uint64_t time;
             std::vector<uint32_t> out;
             pairwise_intersection(sliced_sequences[0], sliced_sequences[1], out.data());
             auto end = std::chrono::high_resolution_clock::now();
             auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-            total_time += elapsed.count();
+            uint64_t time = elapsed.count();
             total_time += time;
             cout << "i: " << number_of_queries << " |n: " << termsId.size() << " |Time execution: " << (float)time*10e-6 << "[ms]" << endl;
  
