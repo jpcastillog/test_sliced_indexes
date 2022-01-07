@@ -1,6 +1,8 @@
 #pragma once
 
 namespace sliced {
+enum type { empty = 0, sparse = 1, dense = 3, full = 2 };
+
 
 namespace constants {
 
@@ -17,7 +19,6 @@ static const uint32_t associativity = 32;
 
 static const uint32_t not_found = uint32_t(-1);
 
-enum type { empty = 0, sparse = 1, dense = 3, full = 2 };
 
 
 }  // namespace constants
