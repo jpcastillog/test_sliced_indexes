@@ -60,7 +60,7 @@ uint32_t num_chunks(uint64_t universe) {
     return (universe + constants::chunk_size) / constants::chunk_size;
 }
 
-enum type { empty = 0, sparse = 1, dense = 3, full = 2 };
+// enum type { empty = 0, sparse = 1, dense = 3, full = 2 };
 
 struct parameters {
     parameters()

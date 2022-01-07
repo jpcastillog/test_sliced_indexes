@@ -1,5 +1,7 @@
 #pragma once
 
+enum type { empty = 0, sparse = 1, dense = 3, full = 2 };
+
 namespace sliced {
 
 namespace constants {
