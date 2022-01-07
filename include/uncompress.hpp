@@ -42,15 +42,15 @@ void uncompress_sparse_chunk(uint8_t const* begin, int blocks, uint64_t* out) {
         int c = *begin;
         c += 1;
         int bytes = 32;
-        int type = type::dense;
+        int t = type::dense;
         if (LIKELY(c < 31)) {
             bytes = c;
-            type = type::sparse;
+            t = type::sparse;
         }
         bitmap += (id - prev) * constants::block_size_in_64bit_words;
-        if (type == type::sparse) {
+        if (t == type::sparse) {
             uncompress_sparse_block(data, c, bitmap);
-        } else if (type == type::dense) {
+        } else if (t == type::dense) {
             uncompress_dense_block(data, bitmap);
         }
         data += bytes;
