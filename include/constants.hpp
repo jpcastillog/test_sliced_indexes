@@ -1,6 +1,6 @@
 #pragma once
 
-enum class type std::uint32_t { empty = 0, sparse = 1, dense = 3, full = 2 };
+enum class type{ empty = 0, sparse = 1, dense = 3, full = 2 };
 
 namespace sliced {
 
