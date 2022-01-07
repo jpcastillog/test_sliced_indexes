@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <cassert>
+#include <typeinfo>
 
 namespace essentials {
 
