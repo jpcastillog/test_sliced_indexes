@@ -50,16 +50,16 @@ uint32_t select_sparse_chunk(uint8_t const* begin, int blocks, uint32_t rank) {
         uint8_t id = *begin;
         int c = *(begin + 1) + 1;
         int bytes = 32;
-        int type = type::dense;
+        int t = type::dense;
         if (LIKELY(c < 31)) {
             bytes = c;
-            type = type::sparse;
+            t = type::sparse;
         }
         if (elements + c > rank) {
             rank -= elements;
             assert(int(rank) < c);
             uint32_t base = id * 256;
-            if (type == type::sparse) {
+            if (t == type::sparse) {
                 return *(data + rank) + base;
             } else {
                 return select_bitmap(data, constants::block_size_in_64bit_words,
