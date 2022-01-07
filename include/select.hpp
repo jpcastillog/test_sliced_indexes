@@ -2,7 +2,6 @@
 // #include "util.hpp"
 
 namespace sliced {
-enum type { empty = 0, sparse = 1, dense = 3, full = 2 };
 
 uint32_t select_bitmap(uint8_t const* data, size_t size_in_64bit_words,
                        uint32_t rank) {
