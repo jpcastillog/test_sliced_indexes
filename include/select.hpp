@@ -1,6 +1,7 @@
 #pragma once
 #include "constants.hpp"
 
+extern enum type;
 namespace sliced {
 
 uint32_t select_bitmap(uint8_t const* data, size_t size_in_64bit_words,
