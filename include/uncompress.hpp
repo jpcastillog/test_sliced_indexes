@@ -1,7 +1,6 @@
 #pragma once
 
 #include "constants.hpp"
-#include <typeinfo>
 
 namespace sliced {
 
