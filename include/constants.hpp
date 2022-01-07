@@ -1,7 +1,7 @@
 #pragma once
 
 namespace sliced {
-enum type{ empty = 0, sparse = 1, dense = 3, full = 2 };
+extern enum type{ empty = 0, sparse = 1, dense = 3, full = 2 };
 
 namespace constants {
 
