@@ -1,5 +1,5 @@
 #pragma once
-enum type{ empty = 0, sparse = 1, dense = 3, full = 2 };
+typedef enum { empty = 0, sparse = 1, dense = 3, full = 2 } type;
 
 namespace sliced {
 
