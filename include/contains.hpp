@@ -31,16 +31,16 @@ bool contains_sparse_chunk(uint8_t const* begin, int blocks, uint32_t value) {
         if (id > block_id) return false;
         int c = *(begin + 1) + 1;
         int bytes = 32;
-        int type = type::dense;
+        int t = type::dense;
         if (LIKELY(c < 31)) {
             bytes = c;
-            type = type::sparse;
+            t = type::sparse;
         }
         if (id == block_id) {
             uint32_t base = id * 256;
             assert(value >= base);
             value -= base;
-            if (type == type::sparse) {
+            if (t == type::sparse) {
                 return sparse_block_contains(data, c, value);
             } else {
                 return bitmap_contains(reinterpret_cast<uint64_t const*>(data),
