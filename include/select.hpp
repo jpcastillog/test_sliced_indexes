@@ -1,7 +1,5 @@
 #pragma once
 
-enum type { empty = 0, sparse = 1, dense = 3, full = 2 };
-
 namespace sliced {
 
 uint32_t select_bitmap(uint8_t const* data, size_t size_in_64bit_words,
@@ -50,16 +48,16 @@ uint32_t select_sparse_chunk(uint8_t const* begin, int blocks, uint32_t rank) {
         uint8_t id = *begin;
         int c = *(begin + 1) + 1;
         int bytes = 32;
-        int t = type::dense;
+        int type = type::dense;
         if (LIKELY(c < 31)) {
             bytes = c;
-            t = type::sparse;
+            type = type::sparse;
         }
         if (elements + c > rank) {
             rank -= elements;
             assert(int(rank) < c);
             uint32_t base = id * 256;
-            if (t == type::sparse) {
+            if (type == type::sparse) {
                 return *(data + rank) + base;
             } else {
                 return select_bitmap(data, constants::block_size_in_64bit_words,

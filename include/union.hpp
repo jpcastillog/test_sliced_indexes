@@ -10,13 +10,13 @@ namespace sliced {
 #define DECODE(ptr)                                                 \
     uint8_t id = *ptr;                                              \
     int c = *(ptr + 1) + 1;                                         \
-    int t = type::dense;                                         \
+    int type = type::dense;                                         \
     int bytes = 32;                                                 \
     if (LIKELY(c < 31)) {                                           \
         bytes = c;                                                  \
-        t = type::sparse;                                        \
+        type = type::sparse;                                        \
     }                                                               \
-    out += decode_block(data_##ptr, t, c, base + id * 256, out); \
+    out += decode_block(data_##ptr, type, c, base + id * 256, out); \
     data_##ptr += bytes;                                            \
     ptr += 2;
 
@@ -68,9 +68,9 @@ size_t ds_union_block(uint8_t const* l, uint8_t const* r, int cardinality,
                       constants::block_size_in_64bit_words, base, out);
 }
 
-inline uint32_t decode_block(uint8_t const* data, int t, int cardinality,
+inline uint32_t decode_block(uint8_t const* data, int type, int cardinality,
                              uint32_t base, uint32_t* out) {
-    if (t == type::sparse) {
+    if (type == type::sparse) {
         return decode_sparse_block(data, cardinality, base, out);
     }
     return decode_bitmap(reinterpret_cast<uint64_t const*>(data),
