@@ -1,4 +1,5 @@
 set(CMAKE_CXX_COMPILER "gcc-7")
+set(CMAKE_C_COMPILE "gcc-7")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lstdc++")
 cmake_minimum_required(VERSION 2.8)
 project(S_INDEXES)
