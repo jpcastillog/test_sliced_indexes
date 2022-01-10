@@ -1,3 +1,4 @@
+set(CMAKE_CXX_COMPILER "gcc-7")
 cmake_minimum_required(VERSION 2.8)
 project(S_INDEXES)
 
@@ -13,7 +14,6 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 endif ()
 
 if(UNIX)
-  set(CMAKE_CXX_COMPILER "gcc-7")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
