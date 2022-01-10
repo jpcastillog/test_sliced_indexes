@@ -1,6 +1,6 @@
 set(CMAKE_CXX_COMPILER "g++-7")
 set(CMAKE_C_COMPILER "gcc-7")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lstdc++")
+
 cmake_minimum_required(VERSION 2.8)
 project(S_INDEXES)
 
@@ -16,11 +16,9 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 endif ()
 
 if(UNIX)
-  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lstdc++")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.2")
   # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mavx2") 
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-missing-braces")
